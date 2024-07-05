@@ -88,7 +88,6 @@ app.post("/add", async (req, res) => {
     const summary = req.body.summary;
     const notes = req.body.notes;
     const cover_image = `${API_URL}${isbn}-${SIZE}.jpg`;
-    console.log(date_read)
 
     //Insert into db
     try {
@@ -134,6 +133,17 @@ app.post("/update", async (req, res) => {
     try {
         await db.query("UPDATE books SET isbn = $2, title = $3, date_read = $4, rating = $5, summary = $6, notes = $7, cover_image = $8  WHERE id = $1", 
             [bookId, isbn, title, date_read, rating, summary, notes, cover_image]);
+        res.redirect("/");
+    } catch (error) {
+        console.log(error);
+    }
+    
+});
+
+app.post("/delete", async (req, res) => {
+    const bookId = req.body.bookId;
+    try {
+        await db.query("DELETE FROM books WHERE id = $1", [bookId]);
         res.redirect("/");
     } catch (error) {
         console.log(error);
