@@ -44,11 +44,11 @@ app.use(express.static("public"));
 async function getBooks() {
     const result = await db.query("SELECT * FROM books");
     const resultRows = result.rows;
-    const formatDatesResult = formatDates(resultRows);
+    const formatDatesResult = getBooksWithFormatDates(resultRows);
     return formatDatesResult;
 }
 
-function formatDates(arrayOfObjects) {
+function getBooksWithFormatDates(arrayOfObjects) {
     const result = [];
     arrayOfObjects.forEach((book) => {
         const date = new Date(book.date_read);
