@@ -1,23 +1,26 @@
 <%- include('partials/header.ejs') %>
 <!--Add new book button-->
-<form action="/add-new-book" method="get">
-    <button type="submit">Add new book</button>
+<form id="add-new-book-button" action="/add-new-book" method="get">
+    <button type="submit" class="btn btn-light rounded-pill px-3">Add new book</button>
 </form>
 <% if(locals.books && locals.books.length > 0) { %>
+    <div id="book-data-row">
     <% locals.books.forEach(book => { %>
-        <div>
+        <div class="book-data">
             <img src="<%= book.cover_image %>" alt="cover-image">
             <h3><%= book.title%></h3>
             <p><b>ISBN:</b> <%= book.isbn%></p>
             <p><b>DATE READ:</b> <%= book.date_read%></p>
             <p><b>RATING:</b> <%= book.rating%>/10</p>
             <p><%= book.summary%></p>
+            <form action="/book-detail" method="post">
+                <input type="hidden" name="bookId" value="<%= book.id %>">
+                <button type="submit" class="btn btn-light rounded-pill px-3 read-notes-btn">Read my notes</button>
+            </form>
         </div>
-        <form action="/book-detail" method="post">
-            <input type="hidden" name="bookId" value="<%= book.id %>">
-            <button type="submit">Read my notes</button>
-        </form>
+        
     <% }); %>
+    </div>
 <% } else {%>
     <p>No books added yet</p>
 <% } %>
