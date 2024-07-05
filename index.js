@@ -16,6 +16,14 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
+app.get("/add-new-book", (req, res) => {
+    res.render("add-new-book.ejs");
+});
+
+app.post("/book-detail", (req, res) => {
+    res.render("book-detail.ejs");
+});
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
