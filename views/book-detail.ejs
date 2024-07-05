@@ -14,4 +14,9 @@
     <button type="submit">Edit</button>
 </form>
 
+<form action="/delete" method="post">
+    <input type="hidden" name="bookId" value="<%= book.id %>">
+    <button type="submit">Delete</button>
+</form>
+
 <%- include('partials/footer.ejs') %>
