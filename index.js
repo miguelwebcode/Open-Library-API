@@ -95,9 +95,11 @@ app.post("/add", async (req, res) => {
     }
 });
 
-app.post("/book-detail", (req, res) => {
+app.post("/book-detail", async (req, res) => {
     const bookId = req.body.bookId;
-    res.render("book-detail.ejs");
+    const result = await db.query("SELECT * FROM books WHERE id = $1", [bookId]);
+    const book = result.rows[0];
+    res.render("book-detail.ejs", {book: book});
 });
 
 
