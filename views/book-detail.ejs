@@ -1,13 +1,13 @@
 <%- include('partials/header.ejs') %>
 
 <div>
+    <img src="<%= book.cover_image %>" alt="cover-image">
     <h3><%= book.title%></h3>
     <p><b>ISBN:</b> <%= book.isbn%></p>
     <p><b>DATE READ:</b> <%= book.date_read%></p>
     <p><b>RATING:</b> <%= book.rating%>/10</p>
     <p><%= book.summary%></p>
     <p><%= book.notes%></p>
-    <img src="<%= book.cover_image %>" alt="cover-image">
 </div>
 <form action="/edit" method="post">
     <input type="hidden" name="bookId" value="<%= book.id %>">
