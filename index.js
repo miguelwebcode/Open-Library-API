@@ -47,7 +47,6 @@ async function getBooks() {
     const result = await db.query("SELECT * FROM books");
     const resultRows = result.rows;
     const booksWithFormattedDates = getBooksWithFormatDates(resultRows);
-    const booksWithThumbnails = await getBooksWithThumbnails(booksWithFormattedDates)
     return booksWithFormattedDates;
 }
 
