@@ -12,14 +12,15 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "open_library",
-    password: 123456,
+    password: '123456',
     port: 5432,
 });
-db.connect
+db.connect();
 
 let booksList = [{
     id: 1,
     isbn: 1234567890123,
+    title: "Title 1",
     date_read: '2024-07-05',
     rating: 8,
     summary: "summary",
@@ -28,6 +29,7 @@ let booksList = [{
 {
     id: 2,
     isbn: 2234567890120,
+    title: "Title 2",
     date_read: '2024-07-03',
     rating: 7,
     summary: "summary 2",

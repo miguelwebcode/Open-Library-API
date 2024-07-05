@@ -4,4 +4,18 @@
     <button type="submit">Add new book</button>
 </form>
 
+<% locals.books.forEach(book => { %>
+    <div>
+        <h3><%= book.title%></h3>
+        <p><%= book.isbn%></p>
+        <p><%= book.date_read%></p>
+        <p><%= book.rating%></p>
+        <p><%= book.summary%></p>
+    </div>
+    <form action="/book-detail" method="post">
+        <input type="hidden" name="bookId" value="<%= book.id %>">
+        <button type="submit">Read my notes</button>
+    </form>
+<% }); %>
+
 <%- include('partials/footer.ejs') %>
