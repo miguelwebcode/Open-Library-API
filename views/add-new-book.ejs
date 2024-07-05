@@ -1,3 +1,46 @@
 <%- include('partials/header.ejs') %>
 
+<form action="/add" method="post">
+    <label for="isbn">ISBN</label>
+    <input type="text" name="isbn" placeholder="Insert ISBN">
+    <br>
+    <br>
+    <label for="title">TITLE</label>
+    <input type="text" name="title" placeholder="Insert title">
+    <br>
+    <br>
+    <label for="title">DATE READ</label>
+    <input type="date" name="dateRead">
+    <br>
+    <br>
+    <label for="rating">RATING:</label>
+    <select id="numero" name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <br>
+    <br>
+    <label for="summary">SUMMARY</label>
+    <br>
+    <br>
+    <textarea name="summary" id="summary" placeholder="Type your summary"></textarea>
+    <br>
+    <br>
+    <label for="notes">YOUR NOTES</label>
+    <br>
+    <br>
+    <textarea name="notes" id="notes" placeholder="Type your notes"></textarea>
+    <br>
+    <br>
+    <button type="submit">Add Book</button>
+</form>
+
 <%- include('partials/footer.ejs') %>
