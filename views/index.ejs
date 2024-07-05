@@ -3,20 +3,24 @@
 <form action="/add-new-book" method="get">
     <button type="submit">Add new book</button>
 </form>
+<% if(locals.books && locals.books.length > 0) { %>
+    <% locals.books.forEach(book => { %>
+        <div>
+            <h3><%= book.title%></h3>
+            <p><b>ISBN:</b> <%= book.isbn%></p>
+            <p><b>DATE READ:</b> <%= book.date_read%></p>
+            <p><b>RATING:</b> <%= book.rating%>/10</p>
+            <p><%= book.summary%></p>
+            <img src="<%= book.cover_image %>" alt="cover-image">
+        </div>
+        <form action="/book-detail" method="post">
+            <input type="hidden" name="bookId" value="<%= book.id %>">
+            <button type="submit">Read my notes</button>
+        </form>
+    <% }); %>
+<% } else {%>
+    <p>No books added yet</p>
+<% } %>
 
-<% locals.books.forEach(book => { %>
-    <div>
-        <h3><%= book.title%></h3>
-        <p><b>ISBN:</b> <%= book.isbn%></p>
-        <p><b>DATE READ:</b> <%= book.date_read%></p>
-        <p><b>RATING:</b> <%= book.rating%>/10</p>
-        <p><%= book.summary%></p>
-        <img src="<%= book.cover_image %>" alt="cover-image">
-    </div>
-    <form action="/book-detail" method="post">
-        <input type="hidden" name="bookId" value="<%= book.id %>">
-        <button type="submit">Read my notes</button>
-    </form>
-<% }); %>
 
 <%- include('partials/footer.ejs') %>
