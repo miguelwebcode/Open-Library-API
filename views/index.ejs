@@ -11,6 +11,7 @@
         <p><b>DATE READ:</b> <%= book.date_read%></p>
         <p><b>RATING:</b> <%= book.rating%>/10</p>
         <p><%= book.summary%></p>
+        <img src="<%= book.cover_image %>" alt="cover-image">
     </div>
     <form action="/book-detail" method="post">
         <input type="hidden" name="bookId" value="<%= book.id %>">
