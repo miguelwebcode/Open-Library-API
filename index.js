@@ -54,6 +54,7 @@ app.post("/add", (req, res) => {
 });
 
 app.post("/book-detail", (req, res) => {
+    const bookId = req.body.bookId;
     res.render("book-detail.ejs");
 });
 

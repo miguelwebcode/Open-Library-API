@@ -7,9 +7,9 @@
 <% locals.books.forEach(book => { %>
     <div>
         <h3><%= book.title%></h3>
-        <p><%= book.isbn%></p>
-        <p><%= book.date_read%></p>
-        <p><%= book.rating%></p>
+        <p>ISBN: <%= book.isbn%></p>
+        <p>DATE READ: <%= book.date_read%></p>
+        <p>RATING: <%= book.rating%>/10</p>
         <p><%= book.summary%></p>
     </div>
     <form action="/book-detail" method="post">
