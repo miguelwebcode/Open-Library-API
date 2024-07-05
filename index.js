@@ -41,7 +41,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Set where static files are
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
+async function getBooks() {
+    const result = await db.query("SELECT * FROM books");
+    const resultRows = result.rows;
+    const formatDatesResult = formatDates(resultRows);
+    return formatDatesResult;
+}
+
+function formatDates(arrayOfObjects) {
+    const result = [];
+    arrayOfObjects.forEach((book) => {
+        const date = new Date(book.date_read);
+        var year = date.getFullYear();
+        var month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0 based
+        var day = date.getDate().toString().padStart(2, '0');
+
+        var formattedDate = day + '-' + month + '-' + year;
+        book.date_read = formattedDate;
+        result.push(book);
+    });
+
+    return result;
+}
+
+app.get("/", async (req, res) => {
+    booksList = await getBooks();
     res.render("index.ejs", {books: booksList});
 });
 
