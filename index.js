@@ -20,6 +20,10 @@ app.get("/add-new-book", (req, res) => {
     res.render("add-new-book.ejs");
 });
 
+app.post("/add-new-book", (req, res) => {
+    res.redirect("/");
+});
+
 app.post("/book-detail", (req, res) => {
     res.render("book-detail.ejs");
 });
