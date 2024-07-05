@@ -6,6 +6,8 @@ import pg from "pg";
 //To handle request and responses
 const app = express();
 const port = 3000;
+const API_URL = "https://covers.openlibrary.org/b/isbn/";
+const SIZE = "L";
 
 //Configure and connect to database
 const db = new pg.Client({
@@ -44,8 +46,9 @@ app.use(express.static("public"));
 async function getBooks() {
     const result = await db.query("SELECT * FROM books");
     const resultRows = result.rows;
-    const formatDatesResult = getBooksWithFormatDates(resultRows);
-    return formatDatesResult;
+    const booksWithFormattedDates = getBooksWithFormatDates(resultRows);
+    const booksWithThumbnails = await getBooksWithThumbnails(booksWithFormattedDates)
+    return booksWithFormattedDates;
 }
 
 function getBooksWithFormatDates(arrayOfObjects) {
@@ -63,6 +66,7 @@ function getBooksWithFormatDates(arrayOfObjects) {
 
     return result;
 }
+
 
 app.get("/", async (req, res) => {
     booksList = await getBooks();
