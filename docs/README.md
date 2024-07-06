@@ -1,6 +1,6 @@
 # Blog Web Application
 
-The goal of this project is to create a web app using Node.js, Express.js, EJS and PostgreSQL. The application uses the Opoen Library API and stores the data in a local PostgreSQL database.
+The goal of this project is to create a web app using Node.js, Express.js, EJS and PostgreSQL. The application uses the Open Library API and stores the data in a local PostgreSQL database.
 
 # How to Run This Project
 
