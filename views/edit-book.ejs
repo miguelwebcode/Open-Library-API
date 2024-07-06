@@ -1,40 +1,38 @@
 <%- include('partials/header.ejs') %>
 
-<form action="/update" method="post">
-    <input type="hidden" name="bookId" value="<%= book.id %>">
-    <label for="isbn">ISBN</label>
-    <input type="text" name="isbn" placeholder="Insert ISBN" value="<%= book.isbn %>">
-    <br>
-    <br>
-    <label for="title">TITLE</label>
-    <input type="text" name="title" placeholder="Insert title" value="<%= book.title %>">
-    <br>
-    <br>
-    <label for="title">DATE READ</label>
-    <input type="date" name="dateRead" value="<%= book.date_read %>">
-    <br>
-    <br>
-    <label for="rating">RATING:</label>
-    <select id="numero" name="rating">
-        <% for(let i = 1; i <= 10; i++) {%>
-            <option value="<%= i %>" <%= (i === book.rating) ? 'selected' : '' %>> <%= i %></option>
-        <% } %>
-    </select>
-    <br>
-    <br>
-    <label for="summary">SUMMARY</label>
-    <br>
-    <br>
-    <textarea name="summary" id="summary" placeholder="Type your summary"><%= book.summary %></textarea>
-    <br>
-    <br>
-    <label for="notes">YOUR NOTES</label>
-    <br>
-    <br>
-    <textarea name="notes" id="notes" placeholder="Type your notes"><%= book.notes %></textarea>
-    <br>
-    <br>
-    <button type="submit">Update Book</button>
-</form>
+<div id="edit-book-div">
+    <form id="edit-book-form" action="/update" method="post">
+        <input type="hidden" name="bookId" value="<%= book.id %>">
+        <label for="isbn">ISBN</label>
+        <br>
+        <input type="text" name="isbn" placeholder="Insert ISBN" value="<%= book.isbn %>">
+        <br>
+        <label for="title">TITLE</label>
+        <br>
+        <input type="text" name="title" placeholder="Insert title" value="<%= book.title %>">
+        <br>
+        <label for="title">DATE READ</label>
+        <br>
+        <input type="date" name="dateRead" value="<%= book.date_read %>">
+        <br>
+        <label for="rating">RATING:</label>
+        <br>
+        <select id="numero" name="rating">
+            <% for(let i = 1; i <= 10; i++) {%>
+                <option value="<%= i %>" <%= (i === book.rating) ? 'selected' : '' %>> <%= i %></option>
+            <% } %>
+        </select>
+        <br>
+        <label for="summary">SUMMARY</label>
+        <br>
+        <textarea name="summary" id="summary" placeholder="Type your summary"><%= book.summary %></textarea>
+        <br>
+        <label for="notes">YOUR NOTES</label>
+        <br>
+        <textarea name="notes" id="notes" placeholder="Type your notes"><%= book.notes %></textarea>
+        <br>
+        <button class="btn btn-warning rounded-pill px-3" type="submit">Update Book</button>
+    </form>
+</div>
 
 <%- include('partials/footer.ejs') %>
