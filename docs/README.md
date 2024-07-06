@@ -18,7 +18,7 @@ git clone https://github.com/miguelwebcode/rick-and-morty-api-consumption.git
 
 ```sh
 
-cd Blog-Web-Application
+cd Open-Library-API
 
 ```
 
