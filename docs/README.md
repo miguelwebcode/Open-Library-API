@@ -4,13 +4,13 @@ The goal of this project is to create a web app using Node.js, Express.js, EJS a
 
 # How to Run This Project
 
-To set up and run this Blog Web Application on your local machine, follow these steps:
+To set up and run this Web Application on your local machine, follow these steps:
 
 **1. Clone the repository:**
 
 ```sh
 
-git clone https://github.com/miguelwebcode/rick-and-morty-api-consumption.git
+git clone https://github.com/miguelwebcode/Open-Library-API.git
 
 ```
 
