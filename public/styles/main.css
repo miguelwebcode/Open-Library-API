@@ -11,21 +11,15 @@ img {
 #add-book-div {
     display: flex;
     justify-content: center;
-    padding-top: 30px;
-
 }
 
-#header-div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 #header-div {
     display: flex;
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Espacio entre los elementos */
-    padding-top: 20px; /* Añade espaciado alrededor del contenedor */
+    padding-top: 50px; /* Añade espaciado alrededor del contenedor */
+    padding-bottom: 50px;
 }
 
 #footer-div {
@@ -37,7 +31,7 @@ img {
 #add-new-book-button {
     display: flex;
     justify-content: center;
-    margin: 60px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
 .book-data {
@@ -47,7 +41,7 @@ img {
     margin: 20px 50px 30px 50px;
 }
 
-.read-notes-btn {
+.read-notes-btn, #edit-btn, #delete-btn {
     width: 100%;
 }
 
@@ -55,4 +49,14 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#book-details {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#edit-btn, #delete-btn {
+    margin: 5px;
 }

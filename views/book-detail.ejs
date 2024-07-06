@@ -1,22 +1,26 @@
 <%- include('partials/header.ejs') %>
 
-<div>
-    <img src="<%= book.cover_image %>" alt="cover-image">
-    <h3><%= book.title%></h3>
-    <p><b>ISBN:</b> <%= book.isbn%></p>
-    <p><b>DATE READ:</b> <%= book.date_read%></p>
-    <p><b>RATING:</b> <%= book.rating%>/10</p>
-    <p><%= book.summary%></p>
-    <p><%= book.notes%></p>
+<div id="book-data-row">
+    <div id="book-details">
+        <img src="<%= book.cover_image %>" alt="cover-image">
+        <h3><%= book.title%></h3>
+        <p><b>ISBN:</b> <%= book.isbn%></p>
+        <p><b>DATE READ:</b> <%= book.date_read%></p>
+        <p><b>RATING:</b> <%= book.rating%>/10</p>
+        <p><%= book.summary%></p>
+        <p><%= book.notes%></p>
+        <form action="/edit" method="post">
+            <input type="hidden" name="bookId" value="<%= book.id %>">
+            <button class="btn btn-warning rounded-pill px-3" id="edit-btn" type="submit">Edit</button>
+        </form>
+        <form action="/delete" method="post">
+            <input type="hidden" name="bookId" value="<%= book.id %>">
+            <button class="btn btn-danger rounded-pill px-3" id="delete-btn" type="submit">Delete</button>
+        </form>
+    </div>
 </div>
-<form action="/edit" method="post">
-    <input type="hidden" name="bookId" value="<%= book.id %>">
-    <button type="submit">Edit</button>
-</form>
 
-<form action="/delete" method="post">
-    <input type="hidden" name="bookId" value="<%= book.id %>">
-    <button type="submit">Delete</button>
-</form>
+
+
 
 <%- include('partials/footer.ejs') %>
