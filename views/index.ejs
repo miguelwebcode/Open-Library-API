@@ -12,7 +12,7 @@
             <p><b>ISBN:</b> <%= book.isbn%></p>
             <p><b>DATE READ:</b> <%= book.date_read%></p>
             <p><b>RATING:</b> <%= book.rating%>/10</p>
-            <p><%= book.summary%></p>
+            <p><b>SUMMARY:</b> <%= book.summary%></p>
             <form action="/book-detail" method="post">
                 <input type="hidden" name="bookId" value="<%= book.id %>">
                 <button type="submit" class="btn btn-light rounded-pill px-3 read-notes-btn">Read my notes</button>
